@@ -1,0 +1,31 @@
+common:
+  msg_source: 1
+  send_packet_ros: false
+  send_point_cloud_ros: true
+  send_packet_proto: false
+  send_point_cloud_proto: false
+  pcap_path: /home/robosense/lidar.pcap
+lidar:
+  - driver:
+      lidar_type: RS16
+      frame_id: lidar_link
+      msop_port: 6699
+      difop_port: 7788
+      start_angle: 270
+      end_angle: 90
+      min_distance: 0.2
+      max_distance: 200
+      use_lidar_clock: false
+    ros:
+      ros_recv_packet_topic: /lidar_packets
+      ros_send_packet_topic: /lidar_packets
+      ros_send_point_cloud_topic: /lidar_points
+    proto:
+      point_cloud_recv_port: 60021
+      point_cloud_send_port: 60021
+      msop_recv_port: 60022
+      msop_send_port: 60022
+      difop_recv_port: 60023
+      difop_send_port: 60023
+      point_cloud_send_ip: 127.0.0.1
+      packet_send_ip: 127.0.0.1

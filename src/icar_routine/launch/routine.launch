@@ -1,0 +1,12 @@
+<launch>
+    <node name="transform_broadcaster" pkg="icar_routine" type="transform_broadcaster" output="screen" />
+    <node name="minimap_creation" pkg="icar_routine" type="minimap_creation" output="screen" />
+    <node name="curb_detection" pkg="icar_routine" type="curb_detection" output="screen" />
+
+    <node name="odometry_interpreter" pkg="icar_odometry" type="odometry_interpreter" output="screen" />
+    <node name="lidar_interpreter" pkg="icar_lidar" type="lidar_interpreter" output="screen" />
+
+    <node name="rslidar_sdk_node" pkg="rslidar_sdk" type="rslidar_sdk_node" output="screen">
+        <param name="config_path" value="$(find icar_lidar)/config/config.yaml"/>
+    </node>
+</launch>
