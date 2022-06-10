@@ -4,11 +4,11 @@
     </rosparam>
 
     <node name="transform_broadcaster" pkg="icar_routine" type="transform_broadcaster" output="screen" />
-    <node name="minimap_creation" pkg="icar_routine" type="minimap_creation" output="screen" />
-    <node name="curb_detection" pkg="icar_routine" type="curb_detection" output="screen" />
-
     <node name="odometry_interpreter" pkg="icar_odometry" type="odometry_interpreter" output="screen" />
     <node name="lidar_interpreter" pkg="icar_lidar" type="lidar_interpreter" output="screen" />
+    <node name="minimap_creation" pkg="icar_routine" type="minimap_creation" output="screen" />
+    <node name="curb_detection" pkg="icar_routine" type="curb_detection" output="screen" />
+    <node name="offset_generator" pkg="icar_routine" type="offset_generator" output="screen" />
 
     <arg name="bag_path" default="/home/protanjung/Documents/" />
     <arg name="bag_file0" default="2022-06-03-01-31-53.bag" />
@@ -16,6 +16,6 @@
     <arg name="bag_file2" default="2022-06-03-01-42-48.bag" />
     <arg name="bag_file3" default="2022-06-03-01-44-45.bag" />
 
-    <node name="rosbag_play" pkg="rosbag" type="play" output="log" args="--clock $(arg bag_path)$(arg bag_file2)" />
+    <node name="rosbag_play" pkg="rosbag" type="play" output="log" args="--clock $(arg bag_path)$(arg bag_file1)" />
     <node name="rviz" pkg="rviz" type="rviz" output="log" args="-d $(find icar_routine)/rviz/icar.rviz" />
 </launch>

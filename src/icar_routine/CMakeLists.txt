@@ -138,6 +138,7 @@ include_directories(
 add_executable(transform_broadcaster src/transform_broadcaster.cpp)
 add_executable(minimap_creation src/minimap_creation.cpp)
 add_executable(curb_detection src/curb_detection.cpp)
+add_executable(offset_generator src/offset_generator.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,11 +151,13 @@ add_executable(curb_detection src/curb_detection.cpp)
 add_dependencies(transform_broadcaster ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(minimap_creation ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(curb_detection ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(offset_generator ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(transform_broadcaster ${catkin_LIBRARIES})
 target_link_libraries(minimap_creation ${catkin_LIBRARIES})
 target_link_libraries(curb_detection ${catkin_LIBRARIES})
+target_link_libraries(offset_generator ${catkin_LIBRARIES})
 
 #############
 ## Install ##

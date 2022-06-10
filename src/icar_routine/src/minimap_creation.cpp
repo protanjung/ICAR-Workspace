@@ -6,7 +6,7 @@
 #include "ros/ros.h"
 #include "tf/transform_listener.h"
 
-#define BUFFER_LENGTH 5
+#define BUFFER_LENGTH 10
 
 //=====Prototype
 void cllbck_tim_50hz(const ros::TimerEvent &event);
@@ -118,7 +118,7 @@ int minimap_creation_routine()
     double dy = y - prev_y;
     double distance = sqrt(dx * dx + dy * dy);
 
-    if (distance > 0.5)
+    if (distance > 0.25)
     {
         double forward_or_backward = cos(th - atan2(dy, dx));
 
